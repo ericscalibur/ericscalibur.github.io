@@ -1,7 +1,7 @@
 
 
 body {
-  background: url(../img/background.jpg) no-repeat;
+  background: url(../img/background.jpg) no-repeat fixed;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -12,16 +12,29 @@ body {
 
 }
 
-#heading {
+#titlepage {
   color: white;
   width: 100%;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 15%;
+  margin-bottom: 25%;
   text-align: center;
 }
 
-#maintitle {
-  font-size: 700%;
+#titlepage h1 {
+  font-size: 650%;
+  margin: auto;
+  margin-bottom: 200px;
+  width: 98%;
+}
+
+a {
+  color: white;
+  font-size: 200%;
+  width: 10%;
+}
+
+.shadow {
   text-shadow:
 		-3px -3px 0 #000,
 		3px -3px 0 #000,
@@ -29,26 +42,23 @@ body {
 		3px 3px 0 #000;
 }
 
-section {
-  width: 100%;
-  height: 400px;
-  line-height: 400px;
-  position: relative;
-}
-
-section img {
+#gearatomlogo {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
   width: 33%;
+  height: auto;
 }
 
 footer {
   position: relative;
 }
 
-footer img {
+#rplrenewablelogo {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 25%;
 }
