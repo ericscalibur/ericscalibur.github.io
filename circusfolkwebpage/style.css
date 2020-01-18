@@ -1,0 +1,189 @@
+body {
+  margin: 0px;
+  background-color: black;
+  color: white;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  font-family: 'Lato', sans-serif;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+nav li {
+  float: right;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
+}
+
+#About {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+#About .row {
+  display: flex;
+}
+
+#About .column {
+  float: left;
+}
+
+#About .left {
+  width: 55%;
+}
+
+#About .right {
+  width: 65%;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#About .right h1 {
+  font-size: 36px
+}
+
+#About .right p {
+  font-size: 24px
+}
+
+#Contact {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#Directory {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+#Directory img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 30%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+#ProfileList {
+  color: white;
+}
+
+.entry {
+  display: flex;
+  flex-flow: row;
+}
+
+.col {
+  display: flex;
+  flex-flow: column;
+}
+
+.left {
+  width: 30%;
+  font-size: 24px;
+  margin-left: 25px;
+}
+
+.right {
+  display: flex;
+  justify-content: space-around;
+  float: left;
+  width: 70%;
+  margin: 30px;
+  font-family: 'Lato', sans-serif;
+}
+
+#alias {
+  margin: 15px;
+}
+
+#profilePic {
+  display: block;
+  max-width:230px;
+  width: auto;
+  height: auto;
+  margin: 15px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+input[type=text] {
+  width: 80%;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-radius: 10px 0px 0px 10px;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  margin: auto;
+}
+
+.search-container button {
+  float: left;
+  width: 15%;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #0b7dda;
+}
+
+.search-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+hr {
+  margin: 30px;
+}
