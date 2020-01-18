@@ -9,7 +9,7 @@ body {
   /* Set up positioning */
   top: 0;
   left: 0;
-
+  padding: 30px; /*border space*/
 }
 
 #titlepage {
@@ -17,21 +17,39 @@ body {
   width: 100%;
   margin: auto;
   margin-top: 15%;
-  margin-bottom: 25%;
+  margin-bottom: 10%;
   text-align: center;
 }
 
-#titlepage h1 {
+#titlepage img {
+  padding: 50px;
+  width: 66%;
+}
+
+h1 {
   font-size: 650%;
   margin: auto;
   margin-bottom: 200px;
-  width: 98%;
+}
+
+h2 {
+  font-size: 300%;
+  margin: auto;
+}
+
+h3 {
+  font-size: 150%;
 }
 
 a {
   color: white;
   font-size: 200%;
-  width: 10%;
+  text-decoration: none;
+  padding: 15px;
+}
+
+a:hover {
+  color: #fff200;
 }
 
 .shadow {
