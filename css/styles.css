@@ -14,25 +14,25 @@ body {
   background-size: cover;
   height:100%;
   width:100%;
+  margin: 0px;
 
   /* Set up positioning */
   top: 0;
   left: 0;
-  padding: 30px; /*border space*/
+  /*border space*/
 }
 
 #titlepage {
   color: white;
   width: 100%;
   margin: auto;
-  margin-top: 15%;
-  margin-bottom: 10%;
   text-align: center;
+  padding-top: 200px;
 }
 
 #titlepage img {
-  padding: 50px;
   width: 66%;
+  margin: 5%;
 }
 
 h1 {
@@ -54,7 +54,7 @@ a {
   color: white;
   font-size: 200%;
   text-decoration: none;
-  padding: 15px;
+  margin: 50px;
 }
 
 a:hover {
@@ -81,11 +81,13 @@ a:hover {
 
 footer {
   position: relative;
+  padding-bottom: 100px;
 }
 
 #rplrenewablelogo {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  margin-top: 100px;
+  /* margin-bottom: 100px; */
   width: 25%;
 }
