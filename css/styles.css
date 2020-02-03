@@ -45,10 +45,13 @@ h1 {
 h2 {
   font-size: 300%;
   margin: auto;
+  width: 80%;
 }
 
 h3 {
   font-size: 150%;
+  width: 80%;
+  margin: auto;
 }
 
 a {
