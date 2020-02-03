@@ -6,17 +6,18 @@
     <title>RPL Photon Engine</title>
     <script type="text/javascript" src="loadImage.js"></script>
   </head>
-  <body onload="Authenticate()">
-    <div>
-      <video controls autoplay width="100%" src="img/output_HD1080.mp4">
+  <body onload="Authenticate()" style="background: none">
+    <div id=titlepage style="padding-top: 30px">
+      <video id="video1" controls muted allow="autoplay" autoplay=1 width="80%" height=60% src="img/output_HD1080.mp4?autoplay=1&autopause=0&muted=1">
       </video>
       <!-- <iframe autoplay style="position:absolute; top:0; left:0; width:100%; height:100%;" src="img/output_HD1080.mp4"
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
       picture-in-picture" allow="autoplay;">
       </iframe> -->
-    </div>
-    <div id=titlepage>
-      <a href="0cover.html">&lt;&lt Enter >></a>
+
+      <div>
+        <a href="0cover.html">&lt;&lt; Enter >></a>
+      </div>
     </div>
     <footer>
       <img id="rplrenewablelogo" src="img/rplrenewablelogo.png" alt="rplrenewablelogo">
