@@ -107,3 +107,37 @@ footer {
   margin-top: 100px;
   margin-bottom: 100px;
 }
+/* cell phone */
+@media only screen and (max-device-width: 480px) {
+
+  .item {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+/* bigger than cell phone */
+@media only screen and (min-device-width: 480px) {
+
+  .item {
+    width: 400px;
+    flex-wrap: nowrap;
+  }
+}
+
+.flex-container {
+	display: flex;
+  width: 80%;
+	flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 100px;
+  justify-content: space-between;
+}
+
+.item {
+  box-sizing: border-box;
+  border: 5px solid white;
+  background: #0066b3;
+  padding: 10px;
+	margin-top: 50px;
+}
