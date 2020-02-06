@@ -131,7 +131,7 @@ footer {
 	flex-wrap: wrap;
   margin: auto;
   margin-bottom: 100px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .item {
