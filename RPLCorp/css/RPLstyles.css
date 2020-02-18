@@ -71,8 +71,8 @@ body {
 
   #globe {
     margin: auto;
+    margin-top: 12.5%;
     width: 65%;
-    top: 63px;
     left: 17%;
   }
 }
