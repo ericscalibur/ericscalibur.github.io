@@ -112,6 +112,9 @@ li.dropdown {
 /* if screen less than 480 wide... */
 @media screen and (max-width: 600px) {
 
+  li a, .dropbtn {
+    font-size: 12pt;
+  }
   .box1 {
     width: 100%;
     flex-wrap: nowrap;
