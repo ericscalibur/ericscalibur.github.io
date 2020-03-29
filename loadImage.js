@@ -1,5 +1,5 @@
 'use strict';
-var z = "0007";
+var z = "thesaint";
 let name = prompt("Please enter the password: ", "password");
 
 if(name == z) {
