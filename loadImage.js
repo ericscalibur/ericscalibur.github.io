@@ -1,5 +1,5 @@
 'use strict';
-var z = "ChainReacton";
+var z = "ChainReaction";
 let name = prompt("Please enter the password: ", "password");
 
 if(name == z) {
