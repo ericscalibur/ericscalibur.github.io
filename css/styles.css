@@ -22,12 +22,6 @@ body {
   /*border space*/
 }
 
-#scroll {
-  animation: fadeIn 3s;
-  animation-delay: 13s;
-  animation-fill-mode: forwards;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
