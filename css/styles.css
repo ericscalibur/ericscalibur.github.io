@@ -23,7 +23,6 @@ body {
 }
 
 #scroll {
-  opacity: 0;
   animation: fadeIn 3s;
   animation-delay: 13s;
   animation-fill-mode: forwards;
