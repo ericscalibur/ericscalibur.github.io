@@ -119,6 +119,10 @@ footer {
     width: 100%;
     flex-wrap: wrap;
   }
+
+  body {
+    width: 115%;
+  }
 }
 
 /* bigger than cell phone */
