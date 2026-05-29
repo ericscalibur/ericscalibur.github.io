@@ -181,6 +181,20 @@
       .projects { grid-template-columns: 1fr; }
     }
   </style>
+  <script>
+    (function() {
+      var c = document.createElement('canvas');
+      c.width = c.height = 32;
+      var ctx = c.getContext('2d');
+      ctx.font = '26px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('🗡️', 16, 17);
+      var l = document.createElement('link');
+      l.rel = 'icon'; l.href = c.toDataURL();
+      document.head.appendChild(l);
+    })();
+  </script>
 </head>
 <body>
 
