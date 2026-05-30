@@ -181,6 +181,9 @@
       border-top: 1px solid var(--border);
     }
     footer a { color: var(--accent); text-decoration: none; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .social-links a { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+    .social-links a:hover { color: var(--text); }
 
     @media (max-width: 500px) {
       .projects { grid-template-columns: 1fr; }
@@ -264,7 +267,14 @@
   </div>
 
   <footer>
-    <p>Built with Bitcoin in mind · <a href="https://github.com/ericscalibur" target="_blank">github.com/ericscalibur</a></p>
+    <div class="social-links">
+      <a href="https://instagram.com/ericscalibur" target="_blank">Instagram</a>
+      <a href="https://youtube.com/@ericscalibur" target="_blank">YouTube</a>
+      <a href="https://x.com/ericscalibur" target="_blank">X</a>
+      <a href="https://primal.net/ericscalibur" target="_blank">Nostr</a>
+      <a href="https://github.com/ericscalibur" target="_blank">GitHub</a>
+    </div>
+    <p>Built with Bitcoin in mind</p>
   </footer>
 
 </body>
