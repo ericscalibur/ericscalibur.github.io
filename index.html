@@ -1,281 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ericscalibur — Projects</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ericscalibur — Sovereign Software</title>
+<meta name="description" content="Open-source tools for the sovereignty minded: Lightning payments, Bitcoin inheritance, deadman switches, and local AI. Built in El Salvador.">
+<link rel="icon" href="images/favicon-disrupt.png">
+<style>
+  :root {
+    --bg: #0b0e14;
+    --bg-soft: #11151f;
+    --card: #161b27;
+    --card-hover: #1b2232;
+    --border: #232b3d;
+    --text: #e8ecf4;
+    --muted: #8b95ab;
+    --accent: #f7931a;       /* bitcoin orange */
+    --accent-soft: rgba(247,147,26,.12);
+    --bolt: #ffd60a;
+    --radius: 14px;
+    --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-    :root {
-      --dark:   #0a1520;
-      --mid:    #111f2e;
-      --card:   #162333;
-      --border: #1e3347;
-      --accent: #5dade2;
-      --text:   #ddeaf5;
-      --muted:  #7aaabb;
-      --radius: 12px;
-    }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--dark);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,14,20,.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; height:60px; }
+  .logo { font-weight: 700; font-size: 1.05rem; color: var(--text); letter-spacing:.02em; }
+  .logo:hover { text-decoration:none; }
+  .logo .sword { color: var(--accent); }
+  nav ul { display:flex; gap: 26px; list-style:none; }
+  nav ul a { color: var(--muted); font-size:.92rem; }
+  nav ul a:hover { color: var(--text); text-decoration:none; }
+  @media (max-width: 640px){ nav ul { display:none; } }
 
-    /* ── Nav ── */
-    nav {
-      background: var(--mid);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-handle {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1px;
-    }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--text); }
+  /* ---------- hero ---------- */
+  header {
+    padding: 96px 0 72px;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(247,147,26,.13), transparent),
+      var(--bg);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 800; letter-spacing: -.02em; line-height:1.1;
+  }
+  header h1 .sword { color: var(--accent); }
+  header .tagline {
+    margin: 18px auto 0; max-width: 560px;
+    color: var(--muted); font-size: 1.15rem;
+  }
+  header .tagline b { color: var(--text); font-weight:600; }
+  .hero-ctas { margin-top: 34px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    display:inline-block; padding: 12px 24px; border-radius: 10px;
+    font-weight:600; font-size:.95rem; transition: all .15s ease;
+  }
+  .btn:hover { text-decoration:none; transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color:#0b0e14; }
+  .btn-primary:hover { background:#ffa733; }
+  .btn-ghost { border:1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); }
 
-    /* ── Hero ── */
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-      background: linear-gradient(180deg, var(--mid) 0%, var(--dark) 100%);
-      border-bottom: 1px solid var(--border);
-    }
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 100;
-      color: #fff;
-      margin-bottom: 0.75rem;
-      text-shadow: 0 0 12px rgba(93,173,226,0.7), 0 0 30px rgba(93,173,226,0.3);
-      letter-spacing: 4px;
-    }
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 480px;
-      margin: 0 auto;
-    }
+  /* ---------- sections ---------- */
+  section { padding: 72px 0; }
+  section.alt { background: var(--bg-soft); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .kicker {
+    color: var(--accent); font-family: var(--mono); font-size:.8rem;
+    text-transform: uppercase; letter-spacing:.18em;
+  }
+  h2 { font-size: 1.9rem; letter-spacing:-.01em; margin: 8px 0 6px; }
+  .sub { color: var(--muted); max-width: 640px; margin-bottom: 40px; }
 
-    /* ── Projects ── */
-    .projects {
-      max-width: 1100px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.75rem;
-    }
+  /* ---------- stack layers ---------- */
+  .layer { margin-bottom: 48px; }
+  .layer:last-child { margin-bottom: 0; }
+  .layer-title {
+    display:flex; align-items:baseline; gap:12px; margin-bottom: 18px;
+  }
+  .layer-title h3 { font-size: 1.15rem; }
+  .layer-title span { color: var(--muted); font-size:.9rem; }
 
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-    .project-card img {
-      width: 100%;
-      display: block;
-      border-bottom: 1px solid var(--border);
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      object-position: top;
-    }
-    .card-placeholder {
-      width: 100%;
-      aspect-ratio: 16/10;
-      background: linear-gradient(135deg, #1a3547 0%, #0f1e2a 100%);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-    }
-    .card-body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .card-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .card-title img {
-      height: 24px;
-      width: 24px;
-      object-fit: contain;
-      aspect-ratio: unset;
-    }
-    .card-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      flex: 1;
-      margin-bottom: 1.25rem;
-    }
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-    .tag {
-      background: rgba(93,173,226,0.1);
-      border: 1px solid rgba(93,173,226,0.25);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 0.2rem 0.65rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    .card-link {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.55rem 1.25rem;
-      border-radius: 7px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-align: center;
-      transition: opacity 0.2s;
-    }
-    .card-link:hover { opacity: 0.85; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
 
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 2.5rem 2rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    .social-links a { color: var(--muted); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
-    .social-links a:hover { color: var(--text); }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px;
+    display:flex; flex-direction:column; gap:10px;
+    transition: all .15s ease; position:relative;
+  }
+  .card:hover { background: var(--card-hover); border-color:#33405c; transform: translateY(-2px); }
+  .card h4 { font-size: 1.08rem; display:flex; align-items:center; gap:8px; }
+  .card h4 .emoji { font-size: 1.2rem; }
+  .card p { color: var(--muted); font-size: .92rem; flex:1; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag {
+    font-family: var(--mono); font-size:.7rem; color: var(--accent);
+    background: var(--accent-soft); border-radius: 5px; padding: 3px 8px;
+  }
+  .card-links { display:flex; gap:14px; font-size:.88rem; margin-top:4px; }
+  .featured { border-color: rgba(247,147,26,.45); }
+  .featured::before {
+    content:"★ flagship"; position:absolute; top:14px; right:14px;
+    font-family:var(--mono); font-size:.65rem; color:var(--accent);
+    letter-spacing:.1em; text-transform:uppercase;
+  }
 
-    @media (max-width: 500px) {
-      .projects { grid-template-columns: 1fr; }
-    }
-  </style>
-  <script>
-    (function() {
-      var c = document.createElement('canvas');
-      c.width = c.height = 32;
-      var ctx = c.getContext('2d');
-      ctx.font = '26px serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('🗡️', 16, 17);
-      var l = document.createElement('link');
-      l.rel = 'icon'; l.href = c.toDataURL();
-      document.head.appendChild(l);
-    })();
-  </script>
+  /* ---------- consulting ---------- */
+  .quote {
+    border-left: 3px solid var(--accent);
+    padding: 6px 0 6px 22px; margin: 26px 0;
+    font-size: 1.25rem; line-height: 1.55; font-weight: 500;
+    color: var(--text); max-width: 720px;
+  }
+  .quote em { color: var(--accent); font-style: normal; }
+  .consult-points { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin-top: 30px; }
+  .point { background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .point h4 { margin-bottom: 6px; font-size: 1rem; }
+  .point p { color: var(--muted); font-size: .9rem; }
+
+  /* ---------- footer ---------- */
+  footer { padding: 56px 0 48px; border-top: 1px solid var(--border); text-align:center; }
+  .socials { display:flex; justify-content:center; gap: 22px; flex-wrap:wrap; margin-bottom: 22px; }
+  .socials a { color: var(--muted); font-size: .92rem; }
+  .socials a:hover { color: var(--accent); text-decoration:none; }
+  .zap {
+    font-family: var(--mono); font-size: .9rem; color: var(--bolt);
+    background: rgba(255,214,10,.07); border:1px solid rgba(255,214,10,.2);
+    display:inline-block; padding: 8px 16px; border-radius: 8px; margin-bottom: 18px;
+    cursor: pointer;
+  }
+  footer .fine { color: var(--muted); font-size: .82rem; }
+</style>
 </head>
 <body>
 
-  <nav>
-    <span class="nav-handle">ericscalibur</span>
-    <a href="https://github.com/ericscalibur" target="_blank">GitHub →</a>
-  </nav>
-
-  <div class="hero">
-    <h1>🗡️ericscalibur</h1>
-    <p>Open-source developer for the sovereignty minded.</p>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><span class="sword">🗡️</span> ericscalibur</a>
+    <ul>
+      <li><a href="#stack">The Stack</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#consulting">Consulting</a></li>
+      <li><a href="https://github.com/ericscalibur">GitHub →</a></li>
+    </ul>
   </div>
+</nav>
 
-  <div class="projects">
+<header>
+  <div class="wrap">
+    <h1><span class="sword">🗡️</span> ericscalibur</h1>
+    <p class="tagline">Programmer. De-programmer. Open-source tools for the <b>sovereignty minded</b> — Bitcoin payments, inheritance, and local AI. Built in El Salvador. <b>No banks. No clouds. No permission.</b></p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#projects">Explore the tools</a>
+      <a class="btn btn-ghost" href="#consulting">Hire me to set you up</a>
+    </div>
+  </div>
+</header>
 
-    <div class="project-card">
-      <img src="images/disrupt.png" alt="Disrupt Portal screenshot" loading="lazy" />
-      <div class="card-body">
-        <div class="card-title"><img src="images/favicon-disrupt.png" alt="" /> Disrupt</div>
-        <div class="card-desc">A self-hosted Lightning Network payment dashboard for small teams. Manage payroll, approve drafts, track transactions, and send batch payments — all without a bank.</div>
-        <div class="card-tags">
-          <span class="tag">Lightning</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Self-hosted</span>
-          <span class="tag">Payroll</span>
+<!-- ============ THE STACK ============ -->
+<section id="stack">
+  <div class="wrap">
+    <span class="kicker">The big picture</span>
+    <h2>A full sovereignty stack</h2>
+    <p class="sub">These aren't random repos. Each tool covers one stage of self-sovereign life: earn bitcoin, pay people with it, keep it private, pass it on when you're gone — and run your AI on your own metal while you're at it.</p>
+
+    <!-- EARN -->
+    <div class="layer" id="projects">
+      <div class="layer-title"><h3>⚡ Earn</h3><span>get paid in bitcoin for real work</span></div>
+      <div class="grid">
+        <div class="card">
+          <h4><span class="emoji">🏅</span> Merit</h4>
+          <p>A GitHub Action that pays open-source contributors in sats the moment their PR is merged. Maintainers zap with a comment (<code>⚡ 10000</code>) or set bounty labels. No server, no platform, no middleman — the merge is the payment.</p>
+          <div class="tags"><span class="tag">GitHub Action</span><span class="tag">Lightning</span><span class="tag">NWC</span><span class="tag">Open Source</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Merit">Code →</a></div>
         </div>
-        <a href="https://ericscalibur.github.io/Disrupt/" class="card-link" target="_blank">View Project →</a>
       </div>
     </div>
 
-    <div class="project-card">
-      <img src="images/deploy.png" alt="Deploy: Deadman Switch screenshot" loading="lazy" />
-      <div class="card-body">
-        <div class="card-title"><img src="images/favicon-deploy.png" alt="" /> Deploy: Deadman Switch</div>
-        <div class="card-desc">A personal deadman switch. Set a check-in interval and a period of inactivity. If you stop checking in, your designated emails are automatically sent. Run on your own laptop, VPS, or a Start9.</div>
-        <div class="card-tags">
-          <span class="tag">Privacy</span>
-          <span class="tag">Security</span>
-          <span class="tag">Self-Hosted</span>
-          <span class="tag">Inheritance</span>
+    <!-- PAY -->
+    <div class="layer">
+      <div class="layer-title"><h3>💸 Pay</h3><span>run a business on Lightning</span></div>
+      <div class="grid">
+        <div class="card featured">
+          <h4><span class="emoji">🌋</span> Disrupt Portal</h4>
+          <p>Self-hosted payment dashboard for small teams. Payroll, suppliers, batch CSV payments, draft/approve workflows, role-based access, analytics, and automatic tax withholding — over Lightning or on-chain, via Blink. A business bank account, without the bank.</p>
+          <div class="tags"><span class="tag">Lightning</span><span class="tag">Payroll</span><span class="tag">Self-hosted</span><span class="tag">Start9</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Disrupt">Code →</a><a href="https://ericscalibur.github.io/Disrupt/">Site →</a></div>
         </div>
-        <a href="https://ericscalibur.github.io/Deploy-Deadman-Switch/" class="card-link" target="_blank">View Project →</a>
       </div>
     </div>
 
-    <div class="project-card">
-      <img src="images/legacy.png" alt="Legacy Encryption screenshot" loading="lazy" />
-      <div class="card-body">
-        <div class="card-title"><img src="images/favicon-legacy.png" alt="" /> Legacy Encryption</div>
-        <div class="card-desc">A P2P Bitcoin inheritance tool. Encrypt your seed phrase with a key pair so a trusted recipient can decrypt it — only after you're gone. No sign up or KYC required.</div>
-        <div class="card-tags">
-          <span class="tag">Bitcoin</span>
-          <span class="tag">Encryption</span>
-          <span class="tag">Offline</span>
-          <span class="tag">Inheritance</span>
-          <span class="tag">Seed Signer</span>
+    <!-- PRESERVE -->
+    <div class="layer">
+      <div class="layer-title"><h3>🔐 Preserve & Inherit</h3><span>your keys outlive you, on your terms</span></div>
+      <div class="grid">
+        <div class="card featured">
+          <h4><span class="emoji">🗝️</span> Legacy Encryption</h4>
+          <p>P2P Bitcoin inheritance. Encrypt your seed phrase so a trusted recipient can decrypt it — only after you're gone. Two tiers: a single offline HTML file anyone can use, or fully air-gapped encryption on a stateless SeedSigner. No signup, no KYC, no custodian.</p>
+          <div class="tags"><span class="tag">Inheritance</span><span class="tag">Offline</span><span class="tag">SeedSigner</span><span class="tag">Air-gapped</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Legacy_Encryption">Code →</a><a href="https://ericscalibur.github.io/Legacy_Encryption/index.html">Site →</a><a href="https://ericscalibur.github.io/Legacy_Encryption/protocol.html">Protocol spec →</a></div>
         </div>
-        <a href="https://ericscalibur.github.io/Legacy_Encryption/index.html" class="card-link" target="_blank">View Project →</a>
+        <div class="card">
+          <h4><span class="emoji">📡</span> Deploy: Deadman Switch</h4>
+          <p>Self-hosted deadman switch. Check in on schedule; if you go silent, your pre-written emails — including an encrypted Legacy payload with QR code — are delivered automatically. Runs on a laptop, VPS, or Start9.</p>
+          <div class="tags"><span class="tag">Privacy</span><span class="tag">Inheritance</span><span class="tag">Self-hosted</span><span class="tag">Start9</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Deploy-Deadman-Switch">Code →</a><a href="https://ericscalibur.github.io/Deploy-Deadman-Switch/">Site →</a></div>
+        </div>
+        <div class="card">
+          <h4><span class="emoji">🔏</span> sign-release</h4>
+          <p>One script, zero dependencies. Drop it in any repo and get a GPG-signed release archive, detached signature, SHA256 checksum, and paste-ready verification instructions. Supply-chain protection for indie developers.</p>
+          <div class="tags"><span class="tag">GPG</span><span class="tag">Security</span><span class="tag">Shell</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/sign-release">Code →</a></div>
+        </div>
+        <div class="card">
+          <h4><span class="emoji">🔮</span> SeedSigner + Legacy</h4>
+          <p>Custom SeedSigner OS build with Legacy encryption on-device: encrypt and decrypt your seed phrase on a cold, stateless, air-gapped Raspberry Pi. The highest-security tier of the Legacy protocol.</p>
+          <div class="tags"><span class="tag">Air-gapped</span><span class="tag">Hardware</span><span class="tag">Python</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/seedsigner">Code →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOVEREIGN AI -->
+    <div class="layer">
+      <div class="layer-title"><h3>⛈️ Sovereign AI</h3><span>your models, your memory, your machine</span></div>
+      <div class="grid">
+        <div class="card">
+          <h4><span class="emoji">⛈️</span> Rain</h4>
+          <p>A local AI orchestrator that remembers. Multi-agent routing over Ollama models with 6-tier persistent memory, a code knowledge graph, self-reflection, voice, vision, and web search — fully offline, on consumer hardware. Contributions welcome (and zapped via Merit).</p>
+          <div class="tags"><span class="tag">Local AI</span><span class="tag">Ollama</span><span class="tag">Memory</span><span class="tag">Python</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Rain">Code →</a></div>
+        </div>
+        <div class="card">
+          <h4><span class="emoji">🤖</span> Buildy Buddy</h4>
+          <p>A WhatsApp group digest bot that runs entirely on a Mac Mini with local models. Silently monitors a group and posts an AI-written daily summary on schedule. No cloud, no subscription.</p>
+          <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Local AI</span><span class="tag">TypeScript</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Buildy_Buddy">Code →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EL SALVADOR -->
+    <div class="layer">
+      <div class="layer-title"><h3>🇸🇻 El Salvador</h3><span>built where bitcoin is money</span></div>
+      <div class="grid">
+        <div class="card">
+          <h4><span class="emoji">🗣️</span> Habla Guanaca</h4>
+          <p>Learn the Spanish people actually speak in San Salvador — voseo, caliche slang, and cultural context the textbooks skip. Audio-first spaced repetition, zero backend, runs in any browser.</p>
+          <div class="tags"><span class="tag">Language</span><span class="tag">React</span><span class="tag">No backend</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/Habla-Guanaca">Code →</a></div>
+        </div>
+        <div class="card">
+          <h4><span class="emoji">🧪</span> REDCoin</h4>
+          <p>A from-scratch blockchain in Python — blocks, hashing, proof of work. A learning project kept public because understanding money means building one badly first.</p>
+          <div class="tags"><span class="tag">Learning</span><span class="tag">Python</span><span class="tag">Blockchain</span></div>
+          <div class="card-links"><a href="https://github.com/ericscalibur/REDCoin">Code →</a></div>
+        </div>
       </div>
     </div>
 
   </div>
+</section>
 
-  <footer>
-    <div class="social-links">
-      <a href="https://instagram.com/ericscalibur" target="_blank">Instagram</a>
-      <a href="https://youtube.com/@ericscalibur" target="_blank">YouTube</a>
-      <a href="https://x.com/ericscalibur" target="_blank">X</a>
-      <a href="https://primal.net/p/npub1pl0rs8y4uq8jwvafyg64ad4m8hlhqzl4ex36hfxrvlzprjvrgtsq3ktm0f" target="_blank">Nostr</a>
-      <a href="https://github.com/ericscalibur" target="_blank">GitHub</a>
+<!-- ============ CONSULTING ============ -->
+<section class="alt" id="consulting">
+  <div class="wrap">
+    <span class="kicker">Work with me</span>
+    <h2>Free software. Paid setup.</h2>
+    <div class="quote">
+      "If you're capable of implementing my free, open-source software yourself — <em>you are free to do so.</em> If not, you can pay me to set you up."
     </div>
-    <p>Built with Bitcoin in mind</p>
-  </footer>
+    <div class="consult-points">
+      <div class="point">
+        <h4>⚡ Lightning business setup</h4>
+        <p>Get your team paid in bitcoin: Disrupt Portal installed on your own server, wallets configured, tax withholding tuned to your jurisdiction.</p>
+      </div>
+      <div class="point">
+        <h4>🔐 Inheritance planning</h4>
+        <p>A complete plan for passing on your bitcoin: Legacy encryption, SeedSigner workflows, and a deadman switch that delivers instructions only when it must.</p>
+      </div>
+      <div class="point">
+        <h4>🏠 Self-hosting & Start9</h4>
+        <p>Move off the cloud. Server setup, StartOS services, backups, and Tor access — your data on your hardware.</p>
+      </div>
+    </div>
+    <div class="hero-ctas" style="justify-content:flex-start; margin-top:34px;">
+      <a class="btn btn-primary" href="https://ericscalibur.github.io/Legacy_Encryption/contact.html">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="zap" onclick="navigator.clipboard&&navigator.clipboard.writeText('ericscalibur@blink.sv');this.textContent='⚡ copied!';setTimeout(()=>this.textContent='⚡ ericscalibur@blink.sv',1500)" title="Click to copy">⚡ ericscalibur@blink.sv</div>
+    <div class="socials">
+      <a href="https://github.com/ericscalibur">GitHub</a>
+      <a href="https://x.com/ericscalibur">X</a>
+      <a href="https://youtube.com/@ericscalibur">YouTube</a>
+      <a href="https://instagram.com/ericscalibur">Instagram</a>
+      <a href="https://primal.net/p/npub1pl0rs8y4uq8jwvafyg64ad4m8hlhqzl4ex36hfxrvlzprjvrgtsq3ktm0f">Nostr</a>
+      <a href="https://www.behance.net/preferablyEric">Behance</a>
+    </div>
+    <p class="fine">Built with Bitcoin in mind. No trackers, no analytics, no cookies — obviously.</p>
+  </div>
+</footer>
 
 </body>
 </html>
